@@ -9,6 +9,8 @@ Mocha test runner/reporter. Used in [Barista][barista-url] and [Fireadmin][firea
 1. Runs tests
 1. Writes tests results back to Barista (can be viewed in UI or consumed by API)
 
+![BaristaArchitecture](https://user-images.githubusercontent.com/2992224/41957582-492d69ac-799c-11e8-87e2-e83547422a7a.png)
+
 ## Why?
 Running tests at the click of a button requires "contained" running sessions
 
