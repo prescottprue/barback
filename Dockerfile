@@ -11,9 +11,12 @@ COPY package*.json ./
 # Bundle app source
 COPY . .
 
-# If you are building for development
-# RUN npm install
-# If you are building your code for production
-RUN npm install --only=production
+# Install dependencies
+RUN npm install
 
-CMD [ "npm", "run", "build" ]
+## Build
+RUN [ "npm", "run", "build" ]
+
+# Run prod server so exit signals such as SIGTERM and SIGINT are recieved by
+# node process instead of being swallowed by npm
+CMD [ "node", "dist/index.js" ]

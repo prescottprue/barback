@@ -4,11 +4,10 @@
   "description": "Test runner and reporter for Barista",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon src/index.js --exec babel-node",
     "build": "babel ./src -d dist",
     "lint": "eslint -c .eslintrc test actions querySelectors",
-    "prod": "node dist/index.js",
+    "start": "node dist/index.js",
+    "watch": "nodemon src/index.js --exec babel-node",
     "lint:fix": "npm run lint -- --fix",
     "prepush": "npm run lint"
   },
@@ -18,9 +17,7 @@
     "electron": "^2.0.2",
     "firebase-admin": "^5.12.1",
     "mocha": "^5.2.0",
-    "nightmare": "^3.0.1",
-    "nightmare-upload": "^0.1.1",
-    "nightmare-window-manager": "0.2.2"
+    "nightmare": "^3.0.1"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
@@ -45,5 +42,9 @@
     "nodemon": "^1.17.5"
   },
   "author": "prescottprue",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/barback/fireadmin.git"
+  },
   "license": "MIT"
 }
