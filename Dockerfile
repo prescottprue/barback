@@ -19,4 +19,4 @@ RUN [ "npm", "run", "build" ]
 
 # Run prod server so exit signals such as SIGTERM and SIGINT are recieved by
 # node process instead of being swallowed by npm
-CMD [ "node", "dist/index.js" ]
+ENTRYPOINT [ "node", "dist/index.js" ]
