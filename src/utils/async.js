@@ -4,7 +4,7 @@
  * @return {Promise} Resolves and rejects with an array
  */
 export function to(promise) {
-  return promise.then(data => [null, data]).catch(err => [err])
+  return promise.then(data => [null, data]).catch(err => [err]);
 }
 
 /**
@@ -15,8 +15,8 @@ export function to(promise) {
 export function promiseWaterfall(callbacks) {
   return callbacks.reduce(
     (accumulator, callback) => accumulator.then(callback),
-    Promise.resolve()
-  )
+    Promise.resolve(),
+  );
 }
 
-export default { to, promiseWaterfall }
+export default { to, promiseWaterfall };

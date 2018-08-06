@@ -1,5 +1,6 @@
-import Git from 'nodegit'
-import { to } from './utils/async'
+import Git from 'nodegit';
+import { to } from './utils/async';
+import { log, error } from './utils/logger';
 
 /**
  * Clone a given repository into the `./tmp` folder
@@ -8,22 +9,22 @@ import { to } from './utils/async'
  * @return {Promise}          [description]
  */
 export default async function gitClone(gitUrl, localDir) {
-  console.log(`Cloning git repo from ${gitUrl} to ${localDir}`)
+  log(`Cloning git repo from ${gitUrl} to ${localDir}`);
   // Clone repo
-  const [getErr, repo] = await to(Git.Clone(gitUrl, localDir))
+  const [getErr, repo] = await to(Git.Clone(gitUrl, localDir));
   if (getErr) {
-    console.error(`Error cloning git repo: ${gitUrl}`, getErr.message || getErr)
-    throw getErr
+    error(`Error cloning git repo: ${gitUrl}`, getErr.message || getErr);
+    throw getErr;
   }
   // Get first commit
-  const [getCommitErr, firstCommitOnMaster] = await to(repo.getMasterCommit())
+  const [getCommitErr, firstCommitOnMaster] = await to(repo.getMasterCommit());
   if (getCommitErr) {
-    console.error(
+    error(
       `Error cloning git repo: ${gitUrl}`,
-      getCommitErr.message || getCommitErr
-    )
-    throw getCommitErr
+      getCommitErr.message || getCommitErr,
+    );
+    throw getCommitErr;
   }
-  console.log('First commit loaded successfully!')
-  return firstCommitOnMaster
+  log('First commit loaded successfully!');
+  return firstCommitOnMaster;
 }

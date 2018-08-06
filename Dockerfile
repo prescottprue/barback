@@ -1,4 +1,4 @@
-FROM node:10
+FROM node:8
 
 # Create app directory
 WORKDIR /usr/src/app
@@ -17,6 +17,6 @@ RUN npm install
 ## Build
 RUN [ "npm", "run", "build" ]
 
-# Run prod server so exit signals such as SIGTERM and SIGINT are recieved by
+# Run prod logic so exit signals such as SIGTERM and SIGINT are recieved by
 # node process instead of being swallowed by npm
 ENTRYPOINT [ "node", "dist/index.js" ]
