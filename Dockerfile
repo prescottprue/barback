@@ -1,4 +1,4 @@
-FROM node:8
+FROM cypress/base
 
 # Create app directory
 WORKDIR /usr/src/app

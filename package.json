@@ -1,6 +1,6 @@
 {
   "name": "barback",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Test runner and reporter for Barista",
   "main": "index.js",
   "scripts": {
