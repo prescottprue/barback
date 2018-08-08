@@ -9,7 +9,11 @@ import { log, error } from './utils/logger';
  * @return {Promise}          [description]
  */
 export default async function gitClone(gitUrl, localDir) {
-  log(`Cloning git repo from ${gitUrl} to ${localDir}`);
+  log(
+    `Cloning git repo from ${JSON.stringify(gitUrl)} to ${JSON.stringify(
+      localDir,
+    )}`,
+  );
   // Clone repo
   const [getErr, repo] = await to(Git.Clone(gitUrl, localDir));
   if (getErr) {
